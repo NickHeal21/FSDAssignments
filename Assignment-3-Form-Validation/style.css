@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; color: #202b40; background: #f1f3f9; font: 16px/1.5 system-ui, sans-serif; }
+.card { width: min(100%, 460px); padding: 38px; border: 1px solid #e6e8f0; border-radius: 20px; background: white; box-shadow: 0 18px 50px #19284a10; }
+.eyebrow { margin: 0 0 8px; color: #6d6ac4; font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+h1 { margin: 0; font-size: 29px; letter-spacing: -.04em; }
+.intro { margin: 8px 0 24px; color: #80899b; }
+.field { margin: 0 0 15px; }
+label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; }
+input { width: 100%; padding: 12px 13px; border: 1px solid #dfe3eb; border-radius: 9px; background: #fcfcfe; font: inherit; }
+input:focus { outline: 3px solid #716dc322; border-color: #716dc3; }
+input.invalid { border-color: #d25858; }
+.error, .hint { display: block; margin-top: 4px; font-size: 12px; }
+.error { min-height: 0; color: #c24040; }
+.hint { color: #9aa1af; }
+button { width: 100%; padding: 13px; border: 0; border-radius: 9px; color: white; background: #6864ba; font: inherit; font-weight: 750; cursor: pointer; }
+button:hover { background: #5551a7; }
+.success { min-height: 22px; margin: 12px 0 0; color: #218153; font-size: 14px; font-weight: 650; text-align: center; }

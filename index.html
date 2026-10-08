@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3f5f2" />
+  <title>Front-End Development Assignments</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: 48px 22px; display: grid; place-items: center; color: #24332c; background: #f3f5f2; font: 16px/1.5 system-ui, sans-serif; }
+    main { width: min(100%, 900px); }
+    .eyebrow { margin: 0 0 10px; color: #63836e; font-size: 12px; font-weight: 800; letter-spacing: .15em; }
+    h1 { margin: 0; font-size: clamp(34px, 7vw, 54px); line-height: 1.05; letter-spacing: -.055em; }
+    .intro { margin: 14px 0 30px; color: #76837a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    a { display: flex; min-height: 132px; flex-direction: column; justify-content: space-between; padding: 20px; border: 1px solid #e2e8e1; border-radius: 15px; color: inherit; background: #fff; text-decoration: none; box-shadow: 0 8px 25px #273b2f08; transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+    a:hover, a:focus-visible { transform: translateY(-2px); border-color: #90b29a; box-shadow: 0 12px 28px #273b2f12; outline: none; }
+    .number { color: #819387; font-size: 12px; font-weight: 750; letter-spacing: .08em; }
+    .title { margin-top: 10px; font-size: 18px; font-weight: 750; letter-spacing: -.02em; }
+    .open { margin-top: 9px; color: #63836e; font-size: 13px; font-weight: 700; }
+    @media (max-width: 580px) { body { padding: 34px 18px; } .grid { grid-template-columns: 1fr; } a { min-height: 112px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">FRONT-END DEVELOPMENT · PORTFOLIO</p>
+    <h1>FSD Assignments.<br /> Nikhil Nalawade | 1272250151 </h1>
+    <p class="intro">Choose an assignment to open its live demo.</p>
+    <nav class="grid" aria-label="Assignment demos">
+      <a href="./Assignment-1-Calculator/index.html"><span class="number">ASSIGNMENT 01</span><span class="title">JavaScript Calculator</span><span class="open">Open project ↗</span></a>
+      <a href="./Assignment-2-Todo-List/index.html"><span class="number">ASSIGNMENT 02</span><span class="title">DOM To-Do List</span><span class="open">Open project ↗</span></a>
+      <a href="./Assignment-3-Form-Validation/index.html"><span class="number">ASSIGNMENT 03</span><span class="title">Registration Form Validation</span><span class="open">Open project ↗</span></a>
+      <a href="./Assignment-4-React-Profile-Card/dist/index.html"><span class="number">ASSIGNMENT 04</span><span class="title">React Profile Card</span><span class="open">Open project ↗</span></a>
+      <a href="./Assignment-5-Controlled-React-Form/dist/index.html"><span class="number">ASSIGNMENT 05</span><span class="title">Controlled React Form</span><span class="open">Open project ↗</span></a>
+      <a href="./Assignment-6-React-Counter/dist/index.html"><span class="number">ASSIGNMENT 06</span><span class="title">React Counter</span><span class="open">Open project ↗</span></a>
+    </nav>
+  </main>
+</body>
+</html>

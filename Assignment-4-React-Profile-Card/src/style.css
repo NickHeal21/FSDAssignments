@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #f1f5f3; color: #25332d; font-family: 'DM Sans', system-ui, sans-serif; }
+main { width: min(100%, 390px); }
+.eyebrow { margin: 0 0 16px; color: #678879; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-align: center; }
+.profile-card { overflow: hidden; border: 1px solid #e5ebe6; border-radius: 20px; background: #fff; box-shadow: 0 18px 50px #283e3212; }
+.cover { height: 150px; background: radial-gradient(circle at 75% 20%, #d8ebd9 0 9%, transparent 9.5%), linear-gradient(125deg, #b7d3c2, #e1ece2 52%, #c1ddce); }
+.avatar { width: 104px; height: 104px; display: block; margin: -54px auto 0; border: 5px solid white; border-radius: 50%; object-fit: cover; background: #d7e5da; }
+.profile-content { padding: 12px 32px 30px; text-align: center; }
+.role { margin: 0 0 4px; color: #73917f; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+h1 { margin: 0; font-family: Manrope, sans-serif; font-size: 27px; letter-spacing: -.045em; }
+.description { margin: 12px 0 22px; color: #78857d; font-size: 14px; line-height: 1.7; }
+.contact-button { padding: 11px 19px; border: 0; border-radius: 9px; color: white; background: #426d56; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.contact-button span { margin-left: 8px; }
+.contact-button:hover { background: #335740; }
+.caption { margin: 15px 0 0; color: #93a098; font-size: 12px; text-align: center; }

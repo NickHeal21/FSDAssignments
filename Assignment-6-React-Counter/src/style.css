@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; color: #302a3c; background: #f2eff8; font-family: 'DM Sans', system-ui, sans-serif; }
+.counter-card { width: min(100%, 420px); padding: 40px; border: 1px solid #e8e3f0; border-radius: 22px; background: #fff; box-shadow: 0 20px 60px #36265410; text-align: center; }
+.eyebrow { margin: 0 0 25px; color: #8876b0; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.icon { width: 42px; height: 42px; display: grid; place-items: center; margin: 0 auto 14px; border-radius: 13px; color: #fff; background: #8c77ba; font-size: 22px; }
+h1 { margin: 0; font: 800 34px/1.12 Manrope, sans-serif; letter-spacing: -.05em; }
+.intro { margin: 10px 0 26px; color: #928a9f; font-size: 14px; }
+code { padding: 2px 5px; border-radius: 5px; color: #7663a1; background: #f2eff8; font-size: 12px; }
+.count-display { margin: 0 auto 22px; color: #51456b; font: 700 72px/1.1 Manrope, sans-serif; font-variant-numeric: tabular-nums; }
+.controls { display: flex; align-items: center; justify-content: center; gap: 13px; }
+button { height: 48px; border: 0; border-radius: 11px; font: inherit; font-weight: 700; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+button:active { transform: scale(.96); }
+.step-button { width: 54px; color: #fff; background: #7866a1; font-size: 25px; }
+.step-button:hover { background: #66538f; }
+.reset-button { min-width: 92px; padding: 0 18px; color: #6f6380; background: #f1eef6; }
+.reset-button:hover { background: #e7e1f0; }
+.hint { margin: 20px 0 0; color: #aba5b4; font-size: 12px; }
