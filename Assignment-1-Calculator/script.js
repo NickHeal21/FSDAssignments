@@ -1,28 +1,33 @@
-function calculate(first, second, operator) {
-  // switch selects the arithmetic operation to perform.
+// Add, subtract, multiply, or divide two numbers.
+function calculate(firstNumber, secondNumber, operator) {
   switch (operator) {
-    case "+": return first + second;
-    case "-": return first - second;
-    case "*": return first * second;
+    case "+":
+      return firstNumber + secondNumber;
+    case "-":
+      return firstNumber - secondNumber;
+    case "*":
+      return firstNumber * secondNumber;
     case "/":
-      if (second === 0) throw new Error("Cannot divide by zero.");
-      return first / second;
-    default: throw new Error("Choose a valid operation.");
+      if (secondNumber === 0) {
+        return "Cannot divide by zero.";
+      }
+      return firstNumber / secondNumber;
+    default:
+      return "Please choose an operation.";
   }
 }
 
-document.querySelector("#calculate").addEventListener("click", () => {
-  const firstInput = document.querySelector("#first-number").value;
-  const secondInput = document.querySelector("#second-number").value;
+document.querySelector("#calculate").addEventListener("click", function () {
+  const firstValue = document.querySelector("#first-number").value;
+  const secondValue = document.querySelector("#second-number").value;
+  const operator = document.querySelector("#operator").value;
   const result = document.querySelector("#result");
-  if (firstInput === "" || secondInput === "") {
+
+  if (firstValue === "" || secondValue === "") {
     result.textContent = "Please enter both numbers.";
     return;
   }
-  try {
-    const answer = calculate(Number(firstInput), Number(secondInput), document.querySelector("#operator").value);
-    result.textContent = `Result: ${answer}`;
-  } catch (error) {
-    result.textContent = error.message;
-  }
+
+  const answer = calculate(Number(firstValue), Number(secondValue), operator);
+  result.textContent = "Result: " + answer;
 });

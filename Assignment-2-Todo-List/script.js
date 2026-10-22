@@ -1,54 +1,53 @@
-const form = document.querySelector("#task-form");
-const input = document.querySelector("#task-input");
-const list = document.querySelector("#task-list");
-const emptyState = document.querySelector("#empty-state");
-const count = document.querySelector("#task-count");
+const taskForm = document.querySelector("#task-form");
+const taskInput = document.querySelector("#task-input");
+const taskList = document.querySelector("#task-list");
+const emptyMessage = document.querySelector("#empty-state");
 
-function updateSummary() {
-  const total = list.children.length;
-  const completed = list.querySelectorAll(".task.completed").length;
-  count.textContent = `${total} ${total === 1 ? "task" : "tasks"}${completed ? ` · ${completed} done` : ""}`;
-  emptyState.hidden = total > 0;
-}
-
-function addTask(text) {
-  const item = document.createElement("li");
-  item.className = "task";
+function addTask(taskText) {
+  const task = document.createElement("li");
+  task.className = "task";
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.setAttribute("aria-label", `Mark ${text} as completed`);
-  checkbox.addEventListener("change", () => {
-    item.classList.toggle("completed", checkbox.checked);
-    updateSummary();
+
+  const taskName = document.createElement("span");
+  taskName.className = "task-text";
+  taskName.textContent = taskText;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.type = "button";
+  deleteButton.className = "delete-button";
+  deleteButton.textContent = "×";
+  deleteButton.setAttribute("aria-label", "Delete " + taskText);
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      task.classList.add("completed");
+    } else {
+      task.classList.remove("completed");
+    }
   });
 
-  const label = document.createElement("span");
-  label.className = "task-text";
-  label.textContent = text;
-
-  const remove = document.createElement("button");
-  remove.type = "button";
-  remove.className = "delete-button";
-  remove.textContent = "×";
-  remove.setAttribute("aria-label", `Delete ${text}`);
-  remove.addEventListener("click", () => {
-    item.remove();
-    updateSummary();
+  deleteButton.addEventListener("click", function () {
+    task.remove();
+    if (taskList.children.length === 0) {
+      emptyMessage.hidden = false;
+    }
   });
 
-  item.append(checkbox, label, remove);
-  list.append(item);
-  updateSummary();
+  task.appendChild(checkbox);
+  task.appendChild(taskName);
+  task.appendChild(deleteButton);
+  taskList.appendChild(task);
+  emptyMessage.hidden = true;
 }
 
-form.addEventListener("submit", (event) => {
+taskForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const task = input.value.trim();
-  if (!task) return;
-  addTask(task);
-  input.value = "";
-  input.focus();
-});
+  const taskText = taskInput.value.trim();
 
-updateSummary();
+  if (taskText !== "") {
+    addTask(taskText);
+    taskInput.value = "";
+  }
+});

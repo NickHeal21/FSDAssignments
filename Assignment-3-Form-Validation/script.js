@@ -1,35 +1,47 @@
-const form = document.querySelector("#registration-form");
-const fields = ["name", "email", "phone", "password"];
+const registrationForm = document.querySelector("#registration-form");
 
-function showError(field, message) {
-  const input = document.querySelector(`#${field}`);
-  document.querySelector(`#${field}-error`).textContent = message;
-  input.classList.toggle("invalid", Boolean(message));
-  input.setAttribute("aria-invalid", String(Boolean(message)));
-}
-
-form.addEventListener("submit", (event) => {
+registrationForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  document.querySelector("#success").textContent = "";
-  const values = Object.fromEntries(new FormData(form).entries());
-  const errors = {
-    name: values.name.trim().length < 2 ? "Please enter your name (at least 2 characters)." : "",
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()) ? "" : "Enter a valid email address.",
-    phone: /^\+?[\d\s().-]{10,}$/.test(values.phone.trim()) && values.phone.replace(/\D/g, "").length >= 10 ? "" : "Enter a phone number with at least 10 digits.",
-    password: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(values.password) ? "" : "Use at least 8 characters, including a letter and a number."
-  };
 
-  fields.forEach((field) => showError(field, errors[field]));
-  const firstInvalid = fields.find((field) => errors[field]);
-  if (firstInvalid) {
-    document.querySelector(`#${firstInvalid}`).focus();
-    return;
+  const name = document.querySelector("#name").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  const phone = document.querySelector("#phone").value.trim();
+  const password = document.querySelector("#password").value;
+  let formIsValid = true;
+
+  if (name.length < 2) {
+    document.querySelector("#name-error").textContent = "Enter a name with at least 2 characters.";
+    formIsValid = false;
+  } else {
+    document.querySelector("#name-error").textContent = "";
   }
-  document.querySelector("#success").textContent = "Registration details look good!";
-  form.reset();
-});
 
-fields.forEach((field) => document.querySelector(`#${field}`).addEventListener("input", () => {
-  showError(field, "");
-  document.querySelector("#success").textContent = "";
-}));
+  if (!email.includes("@") || !email.includes(".")) {
+    document.querySelector("#email-error").textContent = "Enter a valid email address.";
+    formIsValid = false;
+  } else {
+    document.querySelector("#email-error").textContent = "";
+  }
+
+  const phoneDigits = phone.replace(/\D/g, "");
+  if (phoneDigits.length < 10) {
+    document.querySelector("#phone-error").textContent = "Enter at least 10 phone digits.";
+    formIsValid = false;
+  } else {
+    document.querySelector("#phone-error").textContent = "";
+  }
+
+  if (password.length < 8) {
+    document.querySelector("#password-error").textContent = "Password must be at least 8 characters.";
+    formIsValid = false;
+  } else {
+    document.querySelector("#password-error").textContent = "";
+  }
+
+  if (formIsValid) {
+    document.querySelector("#success").textContent = "Registration details look good!";
+    registrationForm.reset();
+  } else {
+    document.querySelector("#success").textContent = "";
+  }
+});
